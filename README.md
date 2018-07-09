@@ -93,25 +93,29 @@ The json results are used by the frontend to display results.
  otherwise it is considered as external. Only http or https protocol is considered.
  
  
-**Login Form**: A page is considered to have a login form if contains a `<form>` element that:
+**Login Form**: A page is considered to have a login form if contains a `<form>` element that
 1. Contains exactly one input with type=password and 
 2. it contains exactly one text field or exactly one email field
 
 
 **External Link**: The link is considered accessible if it can be accessed directly or through redirection.
-Performance considerations:
+
+*Performance considerations* 
+
 The accessibility of link is done in parallel using multiple threads for better performance.   
 If the request to access link is not served within 5 sec, the request will time out.
-The result is collected in non-blocking manner using Executor Completion Service. It uses non-blocking queue for taking out th result from Future.
+The result is collected in non-blocking manner using Executor Completion Service. It uses non-blocking queue to fetch result from Future.
 
 
 **HTML Version**: The structure is prepared for the server to recognize and name all the html versions in [this page](https://www.w3.org/QA/2002/04/valid-dtd-list.html).
 While this is sufficient for the exercise, Additional entries may be added in actual production quality code.
 
+
 **The frontend**: Front end is quite intuitive, it first presents the page with text box for url. On clicking submit it returns result in tabular form through AJAX call.
 I have used spinner to indicate for request in progress. 
 When the result is displayed, a link is provided along side "External Link Counts", which can clicked to bring details of all external links for its reachability.
 
+
 **Test Cases**: The test cases have been written at unit and integration level. Mockito is used for mocking jsoup calls.
-Additional test cases could be written to deploy application in jetty and test rest endpoints. This is not done in this exercise.
+Additional test cases could be written to deploy application in jetty and test rest endpoints, but this is not done in this exercise.
 UI Based end to end test cases will also be needed for production quality artifacts.

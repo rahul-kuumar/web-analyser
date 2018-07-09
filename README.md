@@ -29,7 +29,7 @@ Note: You should have JDK 8 in classpath
 The service is exposed via rest on following api.
 
  The html page can be analysed using below REST API. 
-* http://localhost:8080/service/services/rest/api/analyze?url=<url> , where Where url is passed as query parameter.
+* http://localhost:8080/service/services/rest/api/analyze?url=http://www.abc.com , where Where url is passed as query parameter.
 
  ```json
 {
@@ -53,7 +53,7 @@ The service is exposed via rest on following api.
 ```
 The external link in html page can be analysed using below REST API.
 
-* http://localhost:8080/service/services/rest/api/external?url=<url> , Where url is passed as query parameter.
+* http://localhost:8080/service/services/rest/api/external?url=http://www.abc.com , Where url is passed as query parameter.
 
  ```json
 [

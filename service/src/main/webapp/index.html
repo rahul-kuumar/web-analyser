@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <style>
+        h1, Table {
+            padding-top: 15px;
+            margin-top: 10px;
+            margin-left: 20%;
+            vertical-align: top;
+        }
+
+        table, td, tr, th {
+            border: solid 1px #fab;
+            width: 400px;
+            word-wrap: break-word;
+        }
+
+    </style>
+
+    <title>Web Page Analyzer</title>
+</head>
+
+<body>
+<div>
+    <h1>Web Page Analyzer</h1>
+    <br/>
+
+    <form>
+        <div class="row">
+
+            <div class="col" style="margin-left:18%">
+                <input type="url" class="form-control" id="urlId" placeholder="Enter url" required/>
+            </div>
+            <div class="col">
+                <button type="submit" id="submitBtn" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+<table id="resultTableId" style="display:none">
+    <thead>
+    <tr>
+        <th colspan="3">Analysis Result</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>HTML Version</td>
+        <td id="versionId" colspan="2"></td>
+    </tr>
+    <tr>
+        <td>Page Title</td>
+        <td id="pageTitleId" colspan="2"></td>
+    </tr>
+    <tr>
+        <td colspan="3">No. Of Headings</td>
+    </tr>
+
+    <tr>
+        <td>h1</td>
+        <td id="h1CountId" colspan="2"></td>
+    </tr>
+    <tr>
+        <td>h2</td>
+        <td id="h2CountId" colspan="2"></td>
+    </tr>
+    <tr>
+        <td>h3</td>
+        <td id="h3CountId" colspan="2"></td>
+    </tr>
+    <tr>
+        <td>h4</td>
+        <td id="h4CountId" colspan="2"></td>
+    </tr>
+    <tr>
+        <td>h5</td>
+        <td id="h5CountId" colspan="2"></td>
+    </tr>
+    <tr>
+        <td>h6</td>
+        <td id="h6CountId" colspan="2"></td>
+    </tr>
+
+
+    <tr>
+        <td>External Links</td>
+        <td>
+            <div id="externalLinkCountId"></div>
+        </td>
+        <td>
+
+            <a href="#" id="link_id" onClick="void(0);"> </a>
+
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>Internal Links</td>
+        <td id="internalLinkCountId" colspan="2"></td>
+    </tr>
+
+    <tr>
+        <td>Has Login</td>
+        <td id="hasLoginFormId" colspan="2"><code class="highlighter-rouge">Yes</code></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <table id="linkTableId" style="display:none" class="table table-responsive-md">
+
+        <thead class="mdb-color lighten-4">
+        <tr>
+            <th style="width:100px; word-wrap:break-word;">Link</th>
+            <th style="width:50px;">Is Reachable</th>
+            <th>Failure Reason</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<table id="errorTableId" style="display:none">
+    <thead>
+    <tr>
+        <th colspan="2">Error occurred</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="color: red">
+        <td>Exception :</td>
+        <td id="exceptionId"></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<div id="wait" style="display:none;width:69px;height:89px;position:absolute;top:50%;left:50%;padding:2px;">
+    <img src='image/demo_wait.gif'/><br>Loading..
+</div>
+
+</body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script src="js/script.js">
+</script>
+
+</html>

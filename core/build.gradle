@@ -1,0 +1,15 @@
+apply plugin: "java"
+apply plugin: "idea"
+apply from: "../gradle/libs.gradle"
+
+archivesBaseName = rootProject.name + "-" + path.toLowerCase().substring(1).replaceAll("[:\\.]", "-")
+
+dependencies {
+    compile libs.jscoup
+    compile libs.logback
+
+
+    testCompile libs.junit
+    testCompile libs.mockito
+
+}

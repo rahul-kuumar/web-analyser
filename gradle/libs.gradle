@@ -1,0 +1,41 @@
+
+def jacksonVersion = "2.9.6"
+def slf4jVersion="1.7.25"
+def springVersion = "4.3.8.RELEASE"
+def cxfVersion = "3.1.11"
+project.ext.libs = [
+		jackson: ["com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion",
+		          "com.fasterxml.jackson.core:jackson-core:$jacksonVersion",
+		          "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+				  "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:$jacksonVersion",
+		          "com.fasterxml.jackson.datatype:jackson-datatype-json-org:$jacksonVersion"
+		],
+
+		commons_lang: "org.apache.commons:commons-lang3:3.5",
+
+        cxf_core: "org.apache.cxf:cxf-core:$cxfVersion",
+        cxf_rt_frontend_jaxrs: "org.apache.cxf:cxf-rt-frontend-jaxrs:$cxfVersion",
+
+		slf4j_api: "org.slf4j:slf4j-api:$slf4jVersion",
+		junit: "junit:junit:4.12",
+		logback: [
+					'ch.qos.logback:logback-core:1.2.3',
+					'ch.qos.logback:logback-classic:1.2.3'
+				],
+		mockito: [
+				'org.mockito:mockito-core:1.10.19',
+				dependencies.create('org.powermock:powermock-api-mockito:1.6.2') {
+					exclude group: 'org.mockito'
+				},
+				'org.powermock:powermock-module-junit4:1.6.2'
+		],
+
+        spring_web: "org.springframework:spring-web:$springVersion",
+		spring_beans: "org.springframework:spring-beans:$springVersion",
+
+
+        jaxrs_api: "javax.ws.rs:javax.ws.rs-api:2.0.1",
+        servlet_api: "javax.servlet:servlet-api:2.5",
+		jscoup:   "org.jsoup:jsoup:1.7.2"
+
+	]

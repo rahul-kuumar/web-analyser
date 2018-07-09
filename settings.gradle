@@ -1,0 +1,6 @@
+rootProject.name = 'webanalyser'
+
+
+include ":core",
+        ":service"
+

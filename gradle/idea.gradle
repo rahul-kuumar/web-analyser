@@ -1,0 +1,32 @@
+apply plugin: "idea"
+
+
+idea {
+	project {
+		languageLevel = "1.8"
+		ipr {
+			withXml {
+				def project = it.asNode()
+
+				// set the VCS
+				def mappings = project.component.find {it.@name == "VcsDirectoryMappings"}
+				def vcsDirMapping = mappings.mapping.find{it.@directory == ""}
+				//could be null if updating existing project that has vcs set.
+				if (vcsDirMapping != null) {
+					vcsDirMapping.@vcs = "svn"
+				}
+
+				// set the encoding (UTF-8 for files, windows-1252 for .properties)
+				def encoding = project.component.find {it.@name == "Encoding"}
+				encoding.@defaultCharsetForPropertiesFiles = "ISO-8859-1"
+				def projectEncoding = encoding.file.find{it.@url == "PROJECT"}
+				if (projectEncoding != null) {
+					projectEncoding.@charset = "UTF-8"
+				}
+				else {
+					encoding.appendNode 'file', [url: "PROJECT", charset: "UTF-8"]
+				}
+			}
+		}
+	}
+}

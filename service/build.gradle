@@ -1,0 +1,32 @@
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "war"
+
+
+apply from: "$rootDir/gradle/libs.gradle"
+apply from: "$rootDir/plugins/gretty.plugin"
+
+dependencies {
+	compile project(":core")
+	compile libs.spring_beans
+	compile libs.commons_lang
+	compile libs.spring_web
+	compile libs.jaxrs_api
+	compile libs.cxf_core
+	compile libs.cxf_rt_frontend_jaxrs
+	compile libs.servlet_api
+	compile libs.jackson
+	compile libs.slf4j_api
+	compile libs.logback
+
+
+
+	testCompile libs.junit
+	testCompile libs.mockito
+	testCompile project(':core').sourceSets.test.output
+
+
+}
+war {
+	archiveName "WebAnalysisService.war"
+}
